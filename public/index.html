@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Movie Database</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5 text-center">Personal Movie Database</h1>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="addMovie-tab" data-toggle="tab" href="#addMovie" role="tab" aria-controls="addMovie" aria-selected="true">Add Movie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="viewMovies-tab" data-toggle="tab" href="#viewMovies" role="tab" aria-controls="viewMovies" aria-selected="false">View Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="watchlist-tab" data-toggle="tab" href="#watchlist" role="tab" aria-controls="watchlist" aria-selected="false">Watchlist</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <!-- Add Movie Tab -->
+      <div class="tab-pane fade show active" id="addMovie" role="tabpanel" aria-labelledby="addMovie-tab">
+        <div class="mb-4">
+          <h2>Add Movie</h2>
+          <form id="movieForm" class="mb-4">
+            <div class="form-group">
+              <label for="movieTitle">Title</label>
+              <input type="text" id="movieTitle" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="movieDirector">Director</label>
+              <input type="text" id="movieDirector" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="movieYear">Year</label>
+              <input type="number" id="movieYear" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="movieGenre">Genre</label>
+              <input type="text" id="movieGenre" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="moviePoster">Poster URL</label>
+              <input type="url" id="moviePoster" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add Movie</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- View Movies Tab -->
+      <div class="tab-pane fade" id="viewMovies" role="tabpanel" aria-labelledby="viewMovies-tab">
+        <div class="mb-4">
+          <h2>My Movies</h2>
+          <ul id="movieList" class="list-group"></ul>
+        </div>
+      </div>
+
+      <!-- Watchlist Tab -->
+      <div class="tab-pane fade" id="watchlist" role="tabpanel" aria-labelledby="watchlist-tab">
+        <div class="mb-4">
+          <h2>My Watchlists</h2>
+          <form id="watchlistForm" class="mb-4">
+            <div class="form-group">
+              <label for="watchlistName">Watchlist Name</label>
+              <input type="text" id="watchlistName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="watchlistMovies">Select Movies</label>
+              <select id="watchlistMovies" class="form-control" multiple required></select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Create Watchlist</button>
+          </form>
+          <ul id="watchlistList" class="list-group"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
