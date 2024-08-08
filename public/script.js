@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateMovieSelect([newMovie]);
   
     document.getElementById('movieForm').reset();
+    showModal('Success', 'Movie has been added');
   }
   
   async function updateMovie(id) {
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     document.getElementById('movieForm').reset();
     document.getElementById('movieForm').removeAttribute('data-id');
+    showModal('Success', 'Movie has been updated');
   }
   
   function displayMovies(movies) {
@@ -101,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function deleteMovie(id) {
     await fetch(`/api/movies/${id}`, { method: 'DELETE' });
     fetchMovies();
+    showModal('Success', 'Movie has been deleted');
   }
   
   function editMovie(id) {
@@ -141,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayWatchlist(newWatchlist);
   
     document.getElementById('watchlistForm').reset();
+    showModal('Success', 'Watchlist has been created');
   }
   
   async function updateWatchlist(id) {
@@ -158,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     document.getElementById('watchlistForm').reset();
     document.getElementById('watchlistForm').removeAttribute('data-id');
+    showModal('Success', 'Watchlist has been updated');
   }
   
   function displayWatchlists(watchlists) {
@@ -191,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function deleteWatchlist(id) {
     await fetch(`/api/watchlists/${id}`, { method: 'DELETE' });
     fetchWatchlists();
+    showModal('Success', 'Watchlist has been deleted');
   }
   
   function editWatchlist(id) {
@@ -218,5 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
       option.textContent = movie.title;
       watchlistMoviesSelect.appendChild(option);
     });
+  }
+  
+  function showModal(title, message) {
+    const modalTitle = document.getElementById('notificationModalLabel');
+    const modalBody = document.getElementById('notificationModalBody');
+  
+    modalTitle.innerText = title;
+    modalBody.innerText = message;
+  
+    $('#notificationModal').modal('show');
   }
   
